@@ -53,6 +53,13 @@ const data = useStaticQuery(graphql`
         }
       }
     }
+    TrailSign: file(relativePath: {eq: "trail-difficulty.png"}) {
+      childImageSharp {
+        fluid (maxWidth: 3200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `)
 
@@ -65,7 +72,7 @@ const data = useStaticQuery(graphql`
         <p><strong>Revisiting the work.</strong></p>
         <TextBlock>
           <p>
-          The last round of testing had revealed a number of issues that we never quite had the opportunity to address. Seeing that some time had passed since I worked on this project, I figured it’d be a good idea to come back with fresh eyes and do a little remodel. 
+          The last round of testing had revealed a number of issues that we never quite had the opportunity to address. Seeing that some time had passed since I worked on this project, I figured it’d be a good idea to come back with fresh eyes and do a little refresh. 
           </p>
         </TextBlock>
         <TextBlock>
@@ -109,6 +116,9 @@ const data = useStaticQuery(graphql`
       <ImageWrapper>
         <Img fluid={data.LocationCrit.childImageSharp.fluid} />
       </ImageWrapper>
+      <ImageWithMargin>
+        <Img fluid={data.TrailSign.childImageSharp.fluid} />
+      </ImageWithMargin>
       <OffsetBody>
         <p><strong>A little sidetrack into symbology</strong></p>
         <TextBlock>
@@ -117,10 +127,17 @@ const data = useStaticQuery(graphql`
           </p>
         </TextBlock>
         <TextQuote>
-        The Walt Disney Company was considering opening a ski resort and did studies and tests on which colors worked best. They came up with the current green circle for easiest runs, a blue square for intermediate, black diamond for advanced and double black diamond for expert.
+          The Walt Disney Company was considering opening a ski resort and did studies and tests on which colors worked best. They came up with the current green circle for easiest runs, a blue square for intermediate, black diamond for advanced and double black diamond for expert.
         </TextQuote>
         <TextBlock>
-          <p>The NSAA first adopted a system of signage in the winter of 1964-65. Before that, as if skiing on wooden boards with leather boots wasn’t hard enough, it was every man for himself. The colors they used were different than today and also conflicted with the colors used in Europe. American Resorts used yellow to designate intermediate trails and the French used red because, well who knows why—they’re French. The Walt Disney Company was considering opening a ski resort and did studies and tests on which colors worked best. They came up with the current green circle for easiest runs, a blue square for intermediate, black diamond for advanced and double black diamond for expert. This system was adopted by the NSAA 3 years later in 1968 and has stuck ever since. </p>
+          <p>
+          The NSAA first adopted a system of signage in the winter of 1964-65. Before that, as if skiing on wooden boards with leather boots wasn’t hard enough, it was every man for himself. The colors they used were different than today and also conflicted with the colors used in Europe. American Resorts used yellow to designate intermediate trails and the French used red because, well who knows why—they’re French. 
+          </p>
+        </TextBlock>
+        <TextBlock>
+          <p>
+          The Walt Disney Company was considering opening a ski resort and did studies and tests on which colors worked best. They had even tested skier’s reactions to different geometric figures, concluding for example, that the symbol for easy terrain should be a circle, which was perceived as soft, and that the color of the circle should be green, which was perceived as mellow. The current system of a green circle for easiest runs, a blue square for intermediate, black diamond for advanced and double black diamond for expert was thus born. This system was adopted by the NSAA 3 years later in 1968 and has stuck ever since.
+          </p>
         </TextBlock>
       </OffsetBody>
       <LeftButton onClick={() => props.onChange(props.active -1)}>

@@ -54,6 +54,13 @@ export default function SurveyIdeation(props) {
           }
         }
       }
+      SketchGridMobile: file(relativePath: {eq: "sketch-grid-mobile.png"}) {
+        childImageSharp {
+          fluid (maxWidth: 3200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       Mockup: file(relativePath: { eq: "hero-secondary.png"}) {
         childImageSharp {
           fluid(maxWidth: 3200) {
@@ -105,9 +112,15 @@ export default function SurveyIdeation(props) {
          </p>
         </TextBlock>
       </OffsetBody>
-      <ImageWrapper style={{marginBottom: "5rem"}}>
+      {/* <ImageWrapper style={{marginBottom: "5rem"}}>
         <Img fluid={data.SketchGrid.childImageSharp.fluid}/>
-      </ImageWrapper>
+      </ImageWrapper> */}
+      <LargeWidth>
+        <Img fluid={data.SketchGrid.childImageSharp.fluid} />
+      </LargeWidth>
+      <SmallWidth>
+        <Img fluid={data.SketchGridMobile.childImageSharp.fluid} />
+      </SmallWidth>
       <OffsetBody>
         <TextBlock>
           <p>

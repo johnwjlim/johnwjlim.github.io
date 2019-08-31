@@ -16,6 +16,11 @@ import "./styles.css"
 const Container = styled.div`
   margin: 0 auto;
   max-width: 1600;
+  padding: 0px 2.5rem 1.45rem;
+
+  @media (max-width: 425px) {
+    padding: 0 1.25rem 1.45rem;
+  }
 `;
 
 const Layout = ({ children }) => {
@@ -32,21 +37,22 @@ const Layout = ({ children }) => {
   return (
     <>
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-      <div
+      {/* <div
         style={{
           margin: `0 auto`,
           maxWidth: 1600,
           padding: `0px 2.5rem 1.45rem`,
           // paddingTop: '2.5rem',
         }}
-      >
+      > */}
+      <Container>
         <main>{children}</main>
         {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer> */}
-      </div>
+      </Container>
     </>
   )
 }

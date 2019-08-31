@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import { Container, ImageWrapper, FlexWrapper, IntroBody, OffsetBody, TextBlock, RightButton, ButtonHeader, ButtonText, sections } from "../constants"
+import { Container, ImageWrapper, FlexWrapper, IntroBody, OffsetBody, TextBlock, RightButton, ButtonHeader, ButtonText, sections, Image } from "../constants"
 
 const InfoPanel = styled.div`
   width: 18vw;
@@ -38,6 +38,9 @@ const PrototypeText = styled(TextBlock)`
   @media (max-width: 1240px) {
     max-width: 34rem;
   }
+`
+const ImageWithMargin = styled(ImageWrapper)`
+  margin-top: 3.5rem;
 `
 
 export default function Showcase(props) {
@@ -88,6 +91,13 @@ export default function Showcase(props) {
       ProfileMontage: file(relativePath: {eq: "profile-montage.png"}) {
         childImageSharp {
           fluid(maxWidth: 3200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      RevisedScreens: file(relativePath: {eq: "revised-screen-deck-copy.png"}) {
+        childImageSharp {
+          fluid (maxWidth: 3200) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -155,6 +165,9 @@ export default function Showcase(props) {
         <ImageWrapper>
           <Img fluid={data.ProfileMontage.childImageSharp.fluid} />
         </ImageWrapper>
+        <ImageWithMargin>
+          <Img fluid={data.RevisedScreens.childImageSharp.fluid} />
+        </ImageWithMargin>
         <OffsetBody>
           <TextBlock>
             <p>

@@ -21,9 +21,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
   line-height: 1.7;
+  transition: 0.2s;
 
   :hover {
-    text-decoration: underline;
+    // text-decoration: underline;
+    color: #ffb7b7;
   }
 `
 
@@ -34,14 +36,20 @@ const StyledText = styled.a`
   font-weight: 500;
 
   :hover {
-    text-decoration: underline;
-    cursor: pointer;  
+    // text-decoration: underline;
+    // cursor: pointer;  
   }   
 `
 
 const GreyText = styled(StyledText)`
   color: #767676;
   font-weight: 400;
+  transition: 0.2s;
+
+  :hover {
+    color: #ffb7b7;
+    cursor: pointer;  
+  }  
 `
 
 const DetailText = styled.p`
@@ -60,7 +68,7 @@ export default function Nav(props) {
 
 
   function handleComponents() {
-    if (sections.length > 0) {
+    if (sections) {
       return sections.map((section, index) => {
         if (index === props.active) {
           return (

@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react"
 import styled from "styled-components"
+import { useSelector, useDispatch } from 'react-redux'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Nav from "../components/nav"
+import MobileNav from "../components/mobile-nav"
 import Header from "../components/header"
 
 import Showcase from "../components/nimbus/showcase"
@@ -22,10 +24,12 @@ const Wrapper = styled.div`
 
 export default function Nimbus() { 
   const [active, setActive] = useState(0)
+  const menuState = useSelector(state => state.menuState)
+  const dispatch = useDispatch()
 
-  useEffect(() => {
-    console.log("active section = " + sections[active]);
-  })
+  // useEffect(() => {
+  //   dispatch({type: "CLOSE"})
+  // },[])
 
   function handleTabSwitch(value) {
     setActive(value);
@@ -54,12 +58,17 @@ export default function Nimbus() {
     <Layout>
       <SEO title="Nimbus" />
       <Header pageTitle={"Nimbus"} />
-      <Wrapper>
-          {
-            renderActiveSection()
-          }
-        <Nav components={sections} active={active} onChange={handleTabSwitch}/>
-      </Wrapper>
+      {
+        menuState ?
+          <MobileNav components={sections} active={active} onChange={handleTabSwitch}/>
+        :
+        <Wrapper>
+            {
+              renderActiveSection()
+            }
+          <Nav components={sections} active={active} onChange={handleTabSwitch}/>
+        </Wrapper>
+      }
     </Layout>
   )
 }

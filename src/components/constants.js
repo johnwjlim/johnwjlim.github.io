@@ -7,6 +7,10 @@ export const Container = styled.div`
   width: 90%;
   overflow: scroll;
   height: 89vh;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 export const IntroBody = styled.div`
